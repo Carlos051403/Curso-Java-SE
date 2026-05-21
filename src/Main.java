@@ -1,44 +1,26 @@
+import java.util.Scanner; //Traer la herramienta de escucha
+
 public class Main {
-    public static void main(String[] args) {
-        //Reto 1 El Gestor de tiendas (Variables y operadores basicos)
-        double camiseta, pantalon, zapatos, total;
-        camiseta = 18.7;
-        pantalon = 25;
-        zapatos = 59.80;
+    public static void main (String[] args){
+        //RETO 1: EL CONTROL DE PUERTA (IF/ESLSE)
 
-        total = camiseta + pantalon + zapatos;
+        // Se crea el micrófono llamado teclado o leer
+        Scanner teclado = new Scanner(System.in);
 
-        System.out.println("El total de su compra es: " + total);
-        System.out.println(" ");
+        System.out.println("Por favor, ingrese la edad del cliente:");
 
-        //============================
-        //Reto 2: El Descuento (Matematicas un poco más allá
-        //============================
-        int descuento = 15;
-        double precioFinal;
+        //Atrapamos el dato ingresado por el usuario
+        int edad = teclado.nextInt();
 
-        precioFinal = total - descuento;
-
-        System.out.println("Con su cupón, el precio final se queda en: " + precioFinal);
-        System.out.println(" ");
-
-        //============================
-        //Reto 3: El Clásico "Intercambio"(Gimnasia Mental)
-        //============================
-        int a = 5;
-        int b = 10;
-        int aux;
-
-        System.out.println("-----Antes-----");
-        System.out.println("a es: " + a);
-        System.out.println("b es: " + b);
-
-        aux = b;
-        b = a;
-        a = aux;
-
-        System.out.println("-----Después-----");
-        System.out.println("a es: " + a);
-        System.out.println("b es: " + b);
+        if (edad < 18) {
+            System.out.println("Acceso Denegado!");
+        }
+        else if (edad == 18){
+            System.out.println("Acceso permitido. ¡Felicidades por tu mayoría de edad, tienes una consumición gratis!");
+        }
+        else {
+            System.out.println("Acceso permitido. Bienvenido al salón!");
+        }
+        teclado.close(); // Recomendado profesionalmente para liberar memoria, ya que apaga el teclado
     }
 }
