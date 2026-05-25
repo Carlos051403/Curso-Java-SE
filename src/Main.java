@@ -1,50 +1,69 @@
-import java.util.Scanner;
+public class Main {/*esta linea es el contenedor del codigo java*/
+    public static void main (String[] args) {/*esta linea es el motor de arranque del codigo*/
 
-public class Main {
-    public static void main (String[] args) {
+        //1.
+        System.out.println("1. ¡Hola mi nombre es Carlos \n");
 
-        Scanner teclado = new Scanner (System.in);
+        //2.
+        System.out.println("Hola \n Mundo \n"); // El "\n" sirve para hacer salto de linea en la consola de impresion.
 
-        System.out.println("Nombre del Cliente: ");
-        String cliente = teclado.nextLine();
+        //4.
+        /* Este es un comentario de varias
+        lineas ejercicio de mouredev pro
+         */
+        //5.
+        System.out.println("tengo 28 años \n mi color favorito es el negro \n y mi ciudad es maracaibo");
+        System.out.println();
 
-        System.out.println("Cantidad de articulos a comprar: ");
-        int cantidad = teclado.nextInt();
+        //7.
+        System.out.println("Puedo");
+        System.out.println("con todo");
+        System.out.println("lo que me ");
+        System.out.println("propongo");
+        System.out.println("Por eso trabajare en el sector IT");
+        System.out.println("Como Programador Backend");
+        System.out.println();
 
-        System.out.println("Precio Base de Articulo Individual: ");
-        double precioBase = teclado.nextDouble();
+        System.out.println("\n Esta sera una prueba de distintas salidas");
+        System.err.println("Este es un mensaje de alerta \n");
 
-        double subtotal = cantidad * precioBase;
-        double descuentos = 0.00;
-        double costoEnvio = 0.00;
-        double totalFinal = 0.00;
 
-        if (cantidad <= 0){
-            System.out.println("Error debes pedir al menos 1 articulo");
-        }
-        if (subtotal >= 100.0){
-            descuentos = 0.15;
-            costoEnvio = 0.0;
-            System.out.println("¡ENVIO GRATIS!");
-        } else if (subtotal <= 100.0 && subtotal >= 50.0) {
-            descuentos = 0.05;
-            costoEnvio = 5.50;
-        } else {
-            descuentos = 0.0;
-            costoEnvio = 10.25;
-        }
+        System.out.println(" (\\_/) ");
+        System.out.println(" (o.o) ");
+        System.out.println(" />  \\> ");
+        System.out.println();
+        // EJERCICIOS DE TIPO DE DATOS
 
-        totalFinal = ((subtotal - (subtotal * descuentos)) + costoEnvio) * 1.21;
+        String nombre = "Carlos";
+        int edad = 30;
+        double altura = 1.89;
+        boolean disfrutasProgramar = true;
+        final String EMAIL = "reyes123@gmail.com";
+        char inicial = 'C';
+        System.out.println(nombre + "\n" + edad + "\n" + altura + "\n" + disfrutasProgramar + "\n" + EMAIL + "\n" + inicial);
+        System.out.println();
 
-        if (cantidad >= 1) {
-            System.out.println("---FACTURA---");
-            System.out.println("Nombre Cliente: " + cliente);
-            System.out.println("Cantidad de articulos: " + cantidad);
-            System.out.println("Subtotal: " + subtotal);
-            System.out.println("Costo de Envio: " + costoEnvio);
-            System.out.println("Total Final con Iva Incluido: " + totalFinal);
-        }
-        teclado.close();
+        //7.
+        String localidad = "Maracaibo";
+        localidad = "Madrid";
+        System.out.println(localidad + "\n");
+
+        //8.
+        int a = 5;
+        int b = 10;
+        int suma = a + b;
+        System.out.println("Resultado: " + suma);
+        System.out.println();
+
+        System.out.println(edad);
+        System.out.println(disfrutasProgramar);
+        System.out.println();
+
+        String metas;
+        metas = "Sere Programador";
+        System.out.println(metas);
+        System.out.println();
+
 
     }
 }
