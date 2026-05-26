@@ -1,69 +1,73 @@
-public class Main {/*esta linea es el contenedor del codigo java*/
-    public static void main (String[] args) {/*esta linea es el motor de arranque del codigo*/
+import java.util.Scanner;
 
-        //1.
-        System.out.println("1. ¡Hola mi nombre es Carlos \n");
+public class Main {
+    public static void main (String[] args) {
 
-        //2.
-        System.out.println("Hola \n Mundo \n"); // El "\n" sirve para hacer salto de linea en la consola de impresion.
+        Scanner teclado = new Scanner(System.in);
 
-        //4.
-        /* Este es un comentario de varias
-        lineas ejercicio de mouredev pro
-         */
-        //5.
-        System.out.println("tengo 28 años \n mi color favorito es el negro \n y mi ciudad es maracaibo");
-        System.out.println();
+        System.out.println("Hola! Elige el numero de tu opción deseada: ");
+        int opcion = teclado.nextInt();
+        String opcionElegida = "Opción Elegida";
 
-        //7.
-        System.out.println("Puedo");
-        System.out.println("con todo");
-        System.out.println("lo que me ");
-        System.out.println("propongo");
-        System.out.println("Por eso trabajare en el sector IT");
-        System.out.println("Como Programador Backend");
-        System.out.println();
+        // Asi lo hice la primera vez
 
-        System.out.println("\n Esta sera una prueba de distintas salidas");
-        System.err.println("Este es un mensaje de alerta \n");
+       /* switch (opcion) {
 
+            case 1: opcionElegida = "Verificar acceso de un cliente";
+            break;
+            case 2: opcionElegida = "Aplicar recarga con bono promocional";
+            break;
+            case 3: opcionElegida = "Cerrar el sistema";
+            break;
+            default: opcionElegida = "Opcion Invalida";
+            break;
+        }
 
-        System.out.println(" (\\_/) ");
-        System.out.println(" (o.o) ");
-        System.out.println(" />  \\> ");
-        System.out.println();
-        // EJERCICIOS DE TIPO DE DATOS
+        int edad;
+        double recarga;
+        double saldo;
+        if ( opcion == 1) {
+            System.out.println("Que edad tiene el cliente: ");
+            edad = teclado.nextInt();
+            String condicionAcceso = edad >= 18 ? "Autorizado" : "Denegado";
+            System.out.println("Acceso: " + condicionAcceso);
+        } else if (opcion == 2) {
+            System.out.println("Cuanto desea recargar? : ");
+            recarga = teclado.nextDouble();
+            saldo = (recarga * 0.05) + recarga;
+            System.out.println("Su saldo total es de: " + saldo);
+        } else if (opcion == 3) {
+            System.out.println("Cerrando Terminal. ¡Buen Turno!");
+        } */
 
-        String nombre = "Carlos";
-        int edad = 30;
-        double altura = 1.89;
-        boolean disfrutasProgramar = true;
-        final String EMAIL = "reyes123@gmail.com";
-        char inicial = 'C';
-        System.out.println(nombre + "\n" + edad + "\n" + altura + "\n" + disfrutasProgramar + "\n" + EMAIL + "\n" + inicial);
-        System.out.println();
+        // COMO DEBI REDACTARLO
+        int edad;
+        String resultado;
+        double recarga;
+        double saldo;
+        switch (opcion) {
+            case 1:
+                System.out.println("Que edad tiene el cliente?");
+                edad = teclado.nextInt();
+                resultado = (edad >= 18) ? "Acceso Autorizado" : "Acceso Denegado";
+                System.out.println(resultado);
+                break; // El break es OBLIGATORIO para que no siga ejecutando lo de abajo
 
-        //7.
-        String localidad = "Maracaibo";
-        localidad = "Madrid";
-        System.out.println(localidad + "\n");
+            case 2:
+                System.out.println("Cuanto saldo desea recargar?");
+                recarga = teclado.nextDouble();
+                saldo = recarga * 1.05;
+                System.out.println("Su nuevo saldo es de: " + saldo);
+                break;
 
-        //8.
-        int a = 5;
-        int b = 10;
-        int suma = a + b;
-        System.out.println("Resultado: " + suma);
-        System.out.println();
+            case 3:
+                System.out.println("Cerrando terminal. ¡Buen turno!");
+                break;
 
-        System.out.println(edad);
-        System.out.println(disfrutasProgramar);
-        System.out.println();
-
-        String metas;
-        metas = "Sere Programador";
-        System.out.println(metas);
-        System.out.println();
-
-
+            default:
+                // ¡Aquí entra cualquier número que no sea 1, 2 o 3!
+                System.out.println("Error: Opción no válida.");
+                break;
+        }
     }
 }
