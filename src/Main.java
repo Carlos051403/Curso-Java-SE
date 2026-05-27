@@ -2,72 +2,41 @@ import java.util.Scanner;
 
 public class Main {
     public static void main (String[] args) {
+/*
+        //RETO DE PRODUCCION SEMANA CON BUCLE for
 
         Scanner teclado = new Scanner(System.in);
 
-        System.out.println("Hola! Elige el numero de tu opción deseada: ");
-        int opcion = teclado.nextInt();
-        String opcionElegida = "Opción Elegida";
+        int totalTazasVendidas = 0;
 
-        // Asi lo hice la primera vez
-
-       /* switch (opcion) {
-
-            case 1: opcionElegida = "Verificar acceso de un cliente";
-            break;
-            case 2: opcionElegida = "Aplicar recarga con bono promocional";
-            break;
-            case 3: opcionElegida = "Cerrar el sistema";
-            break;
-            default: opcionElegida = "Opcion Invalida";
-            break;
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Cuántas tazas se vendieron en el día " + i + "?");
+            totalTazasVendidas += teclado.nextInt();
         }
 
-        int edad;
-        double recarga;
-        double saldo;
-        if ( opcion == 1) {
-            System.out.println("Que edad tiene el cliente: ");
-            edad = teclado.nextInt();
-            String condicionAcceso = edad >= 18 ? "Autorizado" : "Denegado";
-            System.out.println("Acceso: " + condicionAcceso);
-        } else if (opcion == 2) {
-            System.out.println("Cuanto desea recargar? : ");
-            recarga = teclado.nextDouble();
-            saldo = (recarga * 0.05) + recarga;
-            System.out.println("Su saldo total es de: " + saldo);
-        } else if (opcion == 3) {
-            System.out.println("Cerrando Terminal. ¡Buen Turno!");
-        } */
+        System.out.println("¡Resumen completado! Esta semana se han vendido un total de " + totalTazasVendidas + " tazas.");
+        teclado.close();
 
-        // COMO DEBI REDACTARLO
-        int edad;
-        String resultado;
-        double recarga;
-        double saldo;
-        switch (opcion) {
-            case 1:
-                System.out.println("Que edad tiene el cliente?");
-                edad = teclado.nextInt();
-                resultado = (edad >= 18) ? "Acceso Autorizado" : "Acceso Denegado";
-                System.out.println(resultado);
-                break; // El break es OBLIGATORIO para que no siga ejecutando lo de abajo
+ */
+       // RETO DE ARQUEO DE CAJA DE TURNO
 
-            case 2:
-                System.out.println("Cuanto saldo desea recargar?");
-                recarga = teclado.nextDouble();
-                saldo = recarga * 1.05;
-                System.out.println("Su nuevo saldo es de: " + saldo);
-                break;
+       Scanner teclado = new Scanner(System.in);
 
-            case 3:
-                System.out.println("Cerrando terminal. ¡Buen turno!");
-                break;
+       double sumaTotal = 0.0;
+       double montoIngresado = 80.00;
 
-            default:
-                // ¡Aquí entra cualquier número que no sea 1, 2 o 3!
-                System.out.println("Error: Opción no válida.");
-                break;
-        }
+       while (montoIngresado != 0) {
+           System.out.println("Ingresa el monto a sumar (Teclea 0 para finalizar el arqueo): ");
+           montoIngresado = teclado.nextDouble();
+           if (montoIngresado < 0) { // en el if tenia (teclado.nextDouble() < 0) cuando debia ser (montoIngresado < 0)
+               System.out.println("Error: No puedes ingresar montos negativos");
+           } else {
+               sumaTotal += montoIngresado;
+           }
+       }
+
+        System.out.println("Cierre de caja completado. El total recaudado en el turno es: " + sumaTotal + "euros");
+        teclado.close();
     }
 }
+
