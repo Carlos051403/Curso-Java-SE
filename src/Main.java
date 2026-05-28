@@ -1,42 +1,46 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main (String[] args) {
-/*
-        //RETO DE PRODUCCION SEMANA CON BUCLE for
+    public static void main(String[] args) {
 
+        // 1. - EJERCICIO MOSTRAR NUMEROS HASTA EL LIMITE
+        // tenemos un limite hasta el que tenemos que contar
+        // ingresar ese limite
+
+       /* System.out.println("Ingrese el límite hasta el que quiere contar");
+        Scanner teclado = new Scanner(System.in);
+        int limite = teclado.nextInt();
+        int cont = 1;
+
+        while (cont <= limite) {
+            System.out.println(cont);
+            cont += 1;
+        }
+        teclado.close(); */
+
+        // 2. - EJERCICIO CONTAR DE 2 EN 2
+        /*Realizar un programa que muestre por pantalla los números del 200 al 250 saltando de 2 en 2.
+        La secuencia deberia ser: 200... 202... 204... etc */
+        /*int cont = 200;
+        while (cont <= 250) {
+            System.out.println(cont);
+            cont += 2;
+        }*/
+
+        // 3. - Ejercicio Ingreso de palabra controlado por centinela
+
+        System.out.println("Ingrese una palabra: ");
         Scanner teclado = new Scanner(System.in);
 
-        int totalTazasVendidas = 0;
+        String palabra = teclado.nextLine();
 
-        for (int i = 1; i <= 5; i++) {
-            System.out.println("Cuántas tazas se vendieron en el día " + i + "?");
-            totalTazasVendidas += teclado.nextInt();
+        while (!palabra.equalsIgnoreCase("salir")) {
+            System.out.println("La palabra es: " + palabra);
+
+            System.out.println("Ingrese una palabra: ");
+            palabra = teclado.nextLine();
+
         }
-
-        System.out.println("¡Resumen completado! Esta semana se han vendido un total de " + totalTazasVendidas + " tazas.");
-        teclado.close();
-
- */
-       // RETO DE ARQUEO DE CAJA DE TURNO
-
-       Scanner teclado = new Scanner(System.in);
-
-       double sumaTotal = 0.0;
-       double montoIngresado = 80.00;
-
-       while (montoIngresado != 0) {
-           System.out.println("Ingresa el monto a sumar (Teclea 0 para finalizar el arqueo): ");
-           montoIngresado = teclado.nextDouble();
-           if (montoIngresado < 0) { // en el if tenia (teclado.nextDouble() < 0) cuando debia ser (montoIngresado < 0)
-               System.out.println("Error: No puedes ingresar montos negativos");
-           } else {
-               sumaTotal += montoIngresado;
-           }
-       }
-
-        System.out.println("Cierre de caja completado. El total recaudado en el turno es: " + sumaTotal + "euros");
         teclado.close();
     }
 }
-
