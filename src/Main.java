@@ -3,44 +3,47 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        // 1. - EJERCICIO MOSTRAR NUMEROS HASTA EL LIMITE
-        // tenemos un limite hasta el que tenemos que contar
-        // ingresar ese limite
+        // RETO MARATÓN DEL INMIGRANTE
+        // pedir datos a las personas dni, nombre y edad
+        // determinar a que categoria se tiene que inscribir
+        //informarle a la persona
+        // no sabemos la cantidad de personas
 
-       /* System.out.println("Ingrese el límite hasta el que quiere contar");
-        Scanner teclado = new Scanner(System.in);
-        int limite = teclado.nextInt();
-        int cont = 1;
-
-        while (cont <= limite) {
-            System.out.println(cont);
-            cont += 1;
-        }
-        teclado.close(); */
-
-        // 2. - EJERCICIO CONTAR DE 2 EN 2
-        /*Realizar un programa que muestre por pantalla los números del 200 al 250 saltando de 2 en 2.
-        La secuencia deberia ser: 200... 202... 204... etc */
-        /*int cont = 200;
-        while (cont <= 250) {
-            System.out.println(cont);
-            cont += 2;
-        }*/
-
-        // 3. - Ejercicio Ingreso de palabra controlado por centinela
-
-        System.out.println("Ingrese una palabra: ");
         Scanner teclado = new Scanner(System.in);
 
-        String palabra = teclado.nextLine();
+        System.out.println("Ingrese el DNI de la persona: ");
+        String dni = teclado.nextLine();
 
-        while (!palabra.equalsIgnoreCase("salir")) {
-            System.out.println("La palabra es: " + palabra);
+        System.out.println("Ingrese el Nombre de la persona: ");
+        String nombre = teclado.nextLine();
 
-            System.out.println("Ingrese una palabra: ");
-            palabra = teclado.nextLine();
+        System.out.println("Ingrese la Edad de la persona: ");
+        int edad = Integer.parseInt(teclado.nextLine());
 
+        while (!dni.equals("0") && !nombre.equalsIgnoreCase("fin")) {
+
+            if (edad >= 6 && edad <= 10) {
+                System.out.println("Pertenece a la categoria de Menores A");
+            } else if (edad >= 11 && edad <= 17) {
+                System.out.println("Pertenece a la categoria de  Menores B");
+            } else if (edad >= 18 && edad <= 30) {
+                System.out.println("Pertenece a la categoria de Juveniles");
+            } else if (edad >= 31 && edad <= 50) {
+                System.out.println("Pertenece a la categoria de Adultos");
+            } else if (edad >= 51) {
+                System.out.println("Pertenece a la categoria de Adultos Mayores");
+            } else {
+                System.out.println("Edad invalida, debes tener 6 años en adelante para poder inscribirte");
+            }
+
+            System.out.println("Ingrese el DNI de la persona: ");
+            dni = teclado.nextLine();
+
+            System.out.println("Ingrese el Nombre de la persona: ");
+            nombre = teclado.nextLine();
+
+            System.out.println("Ingrese la Edad de la persona: ");
+            edad = Integer.parseInt(teclado.nextLine());
         }
-        teclado.close();
     }
 }
