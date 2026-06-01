@@ -1,36 +1,32 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main (String[] args) {
-        //RETO DE ARBOLITO CON ASCII
 
-        // Declarar la altura del arbol
-        int altura = 20;
+        Scanner teclado = new Scanner(System.in);
+        Random generador = new Random();
 
-        //bucle para recorrer las filas (altura)
-        for ( int fila=0; fila<altura; fila++) {
+        // Genera un número aleatorio entre 0 y 99, le sumamos 1 para que sea del 1 al 100
+        int numeroSecreto = generador.nextInt(100);
 
-            //bucle para los espacios
-            for (int espacio=0; espacio<(altura-fila-1); espacio++) {
-                System.out.print(" ");
+        int intento = 0; // número que ingrese el usuario
+
+        System.out.println("¡BIENVENIDO AL JUEGO DE ADIVINANZA!");
+        System.out.println("He pensado un número entre el 1 y 100. ¿Puedes adivinarlo?");
+
+        do {
+            System.out.println("Ingresa tu número");
+            intento = Integer.parseInt(teclado.nextLine());
+
+            if (intento > numeroSecreto){
+                System.out.println("X Es menor. ¡Sigue intentando!");
+            } else if (intento < numeroSecreto) {
+                System.out.println("X Es mayor. ¡Sigue intentando!");
+            } else {
+                System.out.println("¡ACERTASTE! El número secreto era: " + numeroSecreto);
             }
-            //bucle para los asteriscos
-            for (int asterisco=0; asterisco<(fila*2)+1; asterisco++) {
-                System.out.print("*");
-            }
-            System.out.println(" ");
-        }
-        // Tronco
-        int largoTronco = 1;
-        for (int base=0; base<largoTronco; base++) {
+        } while (intento != numeroSecreto);
 
-        }
-        // Espacios Blanco
-        for (int espacio=0; espacio<(altura-2); espacio++ ){
-            System.out.print(" ");
-        }
-        //Barritas tronco
-        for (int tronco=0; tronco<3; tronco++) {
-            System.out.print("|");
-        }
-        System.out.println("");
     }
 }
