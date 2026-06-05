@@ -1,38 +1,56 @@
 import java.util.Scanner;
 
+import static java.text.ChoiceFormat.nextDouble;
+
 public class Main {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
-        //MATRICES
-        //Declaracion
-        int matriz [][] = new int [3] [3];
+        // 1.----Vectores Avanzados "EL PODIO DE LA MARATON"------
 
-       /* //Asignación manual
-        matriz [0][0] = 5;
-        matriz [0][1] = 13;
-        matriz [0][2] = 96;
-        matriz [1][0] = 35;
-        matriz [1][1] = 33;
-        matriz [1][2] = 71;
-        matriz [2][0] = 446;
-        matriz [2][1] = 228;
-        matriz [2][2] = 24; */
+        /*Scanner teclado = new Scanner(System.in);
+        Double tiemposCarreras[] = new Double[5];
 
-        //Asignacion por teclado (usuario)
-        Scanner teclado = new Scanner(System.in);
-        for (int f=0; f<3; f++) {
-            for (int c=0; c<3; c++) {
-                System.out.println("Ingrese el valor de la posición f: " + f + "c: " +c);
-                matriz [f][c] = Integer.parseInt(String.valueOf(teclado.nextInt()));
-            }
+        for (int i = 0; i < tiemposCarreras.length; i++) {
+            System.out.println("Ingresa el tiempo del corredor de la posicion: " + i);
+            tiemposCarreras [i] = Double.parseDouble(teclado.nextLine());
         }
 
-        // Recorrido
-        for (int f=0; f<3; f++) {
-            for (int c=0; c<3; c++) {
-                System.out.print(matriz[f][c] + " ");
+        Double tiempoMenor = tiemposCarreras[0];
+        int posicionGanador = 0;
+
+        for (int i = 1; i< tiemposCarreras.length; i++) {
+            if (tiemposCarreras[i]<tiempoMenor) {
+                tiempoMenor = tiemposCarreras [i];
+                posicionGanador = i;
             }
-            System.out.println();
+        }
+        System.out.println("El Ganador de la carrera es la posición: " + posicionGanador);
+        System.out.println("Con un tiempo de: " + tiempoMenor);
+
+        teclado.close();*/
+
+        //2.------ EL CONCESIONARIO MATRICES + VECTORES COMBINADOS-------
+
+        Scanner teclado = new Scanner(System.in);
+
+        int ventas[][] = new int[3][3];
+        int totalVentas[] = new int[3];
+
+        for (int f = 0; f < ventas.length; f++) {
+            for (int c = 0; c < ventas.length; c++) {
+                System.out.println("Ingresa una venta: " + f + c);
+                ventas[f][c] = Integer.parseInt(teclado.nextLine());
+            }
+        }
+        for (int f = 0; f < ventas.length; f++) {
+            int sumaFila = 0;
+            for (int c = 0; c < ventas.length; c++) {
+                sumaFila += ventas[f][c];
+            }
+            totalVentas [f] = sumaFila;
+        }
+        for (int i=0; i< totalVentas.length; i++) {
+            System.out.println("El vendedor" + i + "vendió un total de: " + totalVentas[i]);
         }
         teclado.close();
     }
