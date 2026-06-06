@@ -1,57 +1,70 @@
 import java.util.Scanner;
 
-import static java.text.ChoiceFormat.nextDouble;
-
 public class Main {
     public static void main(String[] args) {
 
-        // 1.----Vectores Avanzados "EL PODIO DE LA MARATON"------
-
-        /*Scanner teclado = new Scanner(System.in);
-        Double tiemposCarreras[] = new Double[5];
-
-        for (int i = 0; i < tiemposCarreras.length; i++) {
-            System.out.println("Ingresa el tiempo del corredor de la posicion: " + i);
-            tiemposCarreras [i] = Double.parseDouble(teclado.nextLine());
-        }
-
-        Double tiempoMenor = tiemposCarreras[0];
-        int posicionGanador = 0;
-
-        for (int i = 1; i< tiemposCarreras.length; i++) {
-            if (tiemposCarreras[i]<tiempoMenor) {
-                tiempoMenor = tiemposCarreras [i];
-                posicionGanador = i;
-            }
-        }
-        System.out.println("El Ganador de la carrera es la posición: " + posicionGanador);
-        System.out.println("Con un tiempo de: " + tiempoMenor);
-
-        teclado.close();*/
-
-        //2.------ EL CONCESIONARIO MATRICES + VECTORES COMBINADOS-------
-
+        // -------- CUANTAS VECES APARECE EL NUMERO 3 ----------
+        /*int vector [] = new int[15];
         Scanner teclado = new Scanner(System.in);
 
-        int ventas[][] = new int[3][3];
-        int totalVentas[] = new int[3];
+        for (int i=0; i< vector.length; i++) {
+            System.out.println("Ingrese el número del vector: " + i);
+            vector [i] = Integer.parseInt(teclado.nextLine());
+        }
+        int cantRepetida = 0;
+        for (int i=0; i< vector.length; i++) {
+            if (vector [i] == 3) {
+                cantRepetida = cantRepetida + 1;
+            }
+        }
+        System.out.println("El numero 3 se repite: " + cantRepetida + " veces");
+        teclado.close();*/
 
-        for (int f = 0; f < ventas.length; f++) {
-            for (int c = 0; c < ventas.length; c++) {
-                System.out.println("Ingresa una venta: " + f + c);
-                ventas[f][c] = Integer.parseInt(teclado.nextLine());
+        // ========== RETO INTEGRADOR NOTAS Y PROMEDIOS ===============
+
+        /*Scanner teclado = new Scanner(System.in);
+        Double matriz[][] = new Double[4][4];
+        Double suma = 0.0;
+
+        // for para carga de nuestra matriz
+        for (int f = 0; f < matriz.length; f++) {
+            for (int c = 0; c < matriz.length - 1; c++) {
+                System.out.println("Ingrese el alumno # " + f);
+                matriz[f][c] = Double.parseDouble(teclado.nextLine());
+                suma += matriz[f][c];
             }
+            int ultimaColumna = matriz[f].length - 1; //Con esto se calcula la ultima columna automaticamente
+            int cantidadDatos = matriz[f].length - 1; // Con esto la cantidad de datos exacta
+
+            matriz[f][ultimaColumna] = suma / cantidadDatos; // Guardo el promedio directo sustituyo matriz[f][3] = suma / 3;
+            suma = 0.0;
         }
-        for (int f = 0; f < ventas.length; f++) {
-            int sumaFila = 0;
-            for (int c = 0; c < ventas.length; c++) {
-                sumaFila += ventas[f][c];
+        // for para recorrer
+        for (int f = 0; f < matriz.length; f++) {
+            System.out.println("Las notas del alumno # " + f + " son: ");
+            for (int c = 0; c < matriz.length - 1; c++) {
+                System.out.println("Nota # " + c + ": " + matriz[f][c]);
             }
-            totalVentas [f] = sumaFila;
+            int ultimaColumna = matriz[f].length - 1; //Hacemos el mismo procedimiento Con esto se calcula la ultima columna automaticamente
+            System.out.println("El promedio de las notas es: " +  matriz[f][ultimaColumna]);
         }
-        for (int i=0; i< totalVentas.length; i++) {
-            System.out.println("El vendedor" + i + "vendió un total de: " + totalVentas[i]);
+        teclado.close();*/
+
+        // 3. ========== EJERCICIO DE RECORRIDO Y CARGAS DE NOMBRES ===============
+
+        String vector[] = new String[8];
+        vector[0] = "Gabriel";
+        vector[1] = "Adrian";
+        vector[2] = "Verusca";
+        vector[3] = "Nicol";
+        vector[4] = "Papá";
+        vector[5] = "Mamá";
+        vector[6] = "Abuela";
+        vector[7] = "Vero";
+
+        for (int i=0; i< vector.length; i++) {
+            System.out.println("El la posición: " + i + " Está el nombre: " + vector[i]);
         }
-        teclado.close();
+
     }
 }
