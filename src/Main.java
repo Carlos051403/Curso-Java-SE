@@ -1,70 +1,76 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 
-        // -------- CUANTAS VECES APARECE EL NUMERO 3 ----------
-        /*int vector [] = new int[15];
+        int mugs = 10;
+        int camisetas = 10;
+        int llaveros = 10;
+
         Scanner teclado = new Scanner(System.in);
 
-        for (int i=0; i< vector.length; i++) {
-            System.out.println("Ingrese el número del vector: " + i);
-            vector [i] = Integer.parseInt(teclado.nextLine());
-        }
-        int cantRepetida = 0;
-        for (int i=0; i< vector.length; i++) {
-            if (vector [i] == 3) {
-                cantRepetida = cantRepetida + 1;
+        int opcion;
+
+        do {
+            System.out.println("1. Ver stock actual");
+            System.out.println("2. Añadir stock");
+            System.out.println("3. Restar stock");
+            System.out.println("4. Salir");
+
+            System.out.println("Selecciona una opción: ");
+            opcion = Integer.parseInt(teclado.nextLine());
+
+            switch (opcion){
+                case 1:
+                    System.out.println("Mugs: " + mugs);
+                    System.out.println("Camisetas: " + camisetas);
+                    System.out.println("Llaveros: " + llaveros);
+                    break;
+
+                case 2:
+                    String producto;
+                    System.out.println("Selecciona Producto: ");
+                    producto = teclado.nextLine();
+
+                    System.out.println("¿Cuanto añadiras al Stock?: ");
+                    int cantidad = Integer.parseInt(teclado.nextLine());
+
+                    if (producto.equalsIgnoreCase("mugs")) {
+                        mugs += cantidad;
+                    } else if (producto.equalsIgnoreCase ("camisetas")) {
+                        camisetas += cantidad;
+                    } else if (producto.equalsIgnoreCase("llaveros")) {
+                        llaveros += cantidad;
+                    } else {
+                        System.out.println("Producto no existe");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Selecciona Producto: ");
+                    producto = teclado.nextLine();
+
+                    System.out.println("¿Cuanto restaras al Stock?: ");
+                    cantidad = Integer.parseInt(teclado.nextLine());
+
+                    if (producto.equalsIgnoreCase("mugs")) {
+                        mugs -= cantidad;
+                    } else if (producto.equalsIgnoreCase ("camisetas")) {
+                        camisetas -= cantidad;
+                    } else if (producto.equalsIgnoreCase("llaveros")) {
+                        llaveros -= cantidad;
+                    } else {
+                        System.out.println("Producto no existe");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Saliendo del Sistema....");
+                    break;
+
+                default:
+                    System.out.println("Opción invalida, intente de nuevo.");
             }
-        }
-        System.out.println("El numero 3 se repite: " + cantRepetida + " veces");
-        teclado.close();*/
-
-        // ========== RETO INTEGRADOR NOTAS Y PROMEDIOS ===============
-
-        /*Scanner teclado = new Scanner(System.in);
-        Double matriz[][] = new Double[4][4];
-        Double suma = 0.0;
-
-        // for para carga de nuestra matriz
-        for (int f = 0; f < matriz.length; f++) {
-            for (int c = 0; c < matriz.length - 1; c++) {
-                System.out.println("Ingrese el alumno # " + f);
-                matriz[f][c] = Double.parseDouble(teclado.nextLine());
-                suma += matriz[f][c];
-            }
-            int ultimaColumna = matriz[f].length - 1; //Con esto se calcula la ultima columna automaticamente
-            int cantidadDatos = matriz[f].length - 1; // Con esto la cantidad de datos exacta
-
-            matriz[f][ultimaColumna] = suma / cantidadDatos; // Guardo el promedio directo sustituyo matriz[f][3] = suma / 3;
-            suma = 0.0;
-        }
-        // for para recorrer
-        for (int f = 0; f < matriz.length; f++) {
-            System.out.println("Las notas del alumno # " + f + " son: ");
-            for (int c = 0; c < matriz.length - 1; c++) {
-                System.out.println("Nota # " + c + ": " + matriz[f][c]);
-            }
-            int ultimaColumna = matriz[f].length - 1; //Hacemos el mismo procedimiento Con esto se calcula la ultima columna automaticamente
-            System.out.println("El promedio de las notas es: " +  matriz[f][ultimaColumna]);
-        }
-        teclado.close();*/
-
-        // 3. ========== EJERCICIO DE RECORRIDO Y CARGAS DE NOMBRES ===============
-
-        String vector[] = new String[8];
-        vector[0] = "Gabriel";
-        vector[1] = "Adrian";
-        vector[2] = "Verusca";
-        vector[3] = "Nicol";
-        vector[4] = "Papá";
-        vector[5] = "Mamá";
-        vector[6] = "Abuela";
-        vector[7] = "Vero";
-
-        for (int i=0; i< vector.length; i++) {
-            System.out.println("El la posición: " + i + " Está el nombre: " + vector[i]);
-        }
-
+        } while (opcion != 4);
     }
 }
