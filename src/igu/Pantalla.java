@@ -6,61 +6,72 @@ import java.util.Scanner;
 
 public class Pantalla {
 
-    //Esto hace la funcion como el Scanner toca crear el objeto para llamar a la logica
-    ControladoraLogica logica = new ControladoraLogica();
+    ControladoraLogica control = new ControladoraLogica();
+    Scanner teclado = new Scanner(System.in);
 
-    //Aca creamos el metodo del menu en el cual ira el swich y el bucle
-    public void menuPrincipal(){
+   public void menuPrincipal() {
+       int opcion;
 
-        //La variable Scanner y opcion van aqui porque pertenecen a la interaccion del menu
-        Scanner teclado = new Scanner(System.in);
+       do {
+           System.out.println("1. Ver Estado de suministros");
+           System.out.println("2. Servir Café");
+           System.out.println("3. Recargar Maquina");
+           System.out.println("4. Apagar Maquina");
 
-        int opcion;
+           System.out.println("Elige una opcion: ");
+           opcion = Integer.parseInt(teclado.nextLine());
 
-        do {
-            System.out.println("1. Ver stock actual");
-            System.out.println("2. Añadir stock");
-            System.out.println("3. Restar stock");
-            System.out.println("4. Salir");
+           switch (opcion) {
+               case 1:
+                   System.out.println("Estado de suministros");
+                   System.out.println("Agua: " + control.agua + " ml");
+                   System.out.println("Café: " + control.cafe + " g");
+                   System.out.println("Vasos: " + control.vasos + " unidades");
+                   break;
 
-            System.out.println("Selecciona una opción: ");
-            opcion = Integer.parseInt(teclado.nextLine());
+               case 2:
+                   boolean cafeServido = false;
 
-            switch (opcion){
-                case 1:
-                    System.out.println("Mugs: " + logica.mugs);
-                    System.out.println("Camisetas: " + logica.camisetas);
-                    System.out.println("Llaveros: " + logica.llaveros);
-                    break;
+                   while (!cafeServido) {
+                       System.out.println("¿Que café deseas? ¿Expreso o Largo?: ");
+                       String tipoCafe = teclado.nextLine();
 
-                case 2:
-                    String producto;
-                    System.out.println("Selecciona Producto: ");
-                    producto = teclado.nextLine();
+                       cafeServido = control.servirCafe(tipoCafe);
 
-                    System.out.println("¿Cuanto añadiras al Stock?: ");
-                    int cantidad = Integer.parseInt(teclado.nextLine());
+                       if (cafeServido) {
+                           System.out.println("¡Café servido con éxito! Disfrútelo.");
+                       }else {
+                           System.out.println("Seleccione una opcion valida");
+                       }
+                   }
+                   break;
 
-                    logica.agregarStock(producto, cantidad);
-                    break;
+               case 3:
+                   boolean cargaExitosa = false;
 
-                case 3:
-                    System.out.println("Selecciona Producto: ");
-                    producto = teclado.nextLine();
+                   while (!cargaExitosa) {
+                       System.out.println("Elige producto a recargar: ");
+                       String producto = teclado.nextLine();
 
-                    System.out.println("¿Cuanto restaras al Stock?: ");
-                    cantidad = Integer.parseInt(teclado.nextLine());
+                       System.out.println("Que cantidad deseas recargar?");
+                       int cantidad = Integer.parseInt(teclado.nextLine());
 
-                    logica.restarStock(producto, cantidad);
-                    break;
+                       cargaExitosa = control.recargarSuministros(producto, cantidad);
 
-                case 4:
-                    System.out.println("Saliendo del Sistema....");
-                    break;
+                       if (!cargaExitosa){
+                           System.out.println("Producto no existe, selecciona opcion valida: ");
+                       }
+                   }
+                   System.out.println("¡Suministros actualizados con éxito!");
+                   break;
 
-                default:
-                    System.out.println("Opción invalida, intente de nuevo.");
-            }
-        } while (opcion != 4);
-    }
+               case 4:
+                   System.out.println("Apagando Maquina");
+                   break;
+
+               default:
+                   System.out.println("Opcion no Valida");
+           }
+       } while (opcion != 4) ;
+   }
 }

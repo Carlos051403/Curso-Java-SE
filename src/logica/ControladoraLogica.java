@@ -1,37 +1,43 @@
 package logica;
 
 public class ControladoraLogica {
+    public int agua = 1000;
+    public int cafe = 500;
+    public int vasos = 10;
 
-    public int mugs = 10;
-    public int camisetas = 10;
-    public int llaveros = 10;
+    public boolean servirCafe (String tipoCafe){
+        boolean pedidoCorrecto = false;
 
-    // Estas funcionan como tuberias para recibir datos de fuera y operar
-    public void agregarStock(String producto, int cantidad) {
-
-        //Este if pertenece al case 2 del swich
-        if (producto.equalsIgnoreCase("mugs")) {
-            mugs += cantidad;
-        } else if (producto.equalsIgnoreCase ("camisetas")) {
-            camisetas += cantidad;
-        } else if (producto.equalsIgnoreCase("llaveros")) {
-            llaveros += cantidad;
-        } else {
-            System.out.println("Producto no existe");
+        if (tipoCafe.equalsIgnoreCase("Expreso")) {
+            agua -= 50;
+            cafe -= 15;
+            pedidoCorrecto = true;
+        } else if (tipoCafe.equalsIgnoreCase("Largo")) {
+            agua -= 100;
+            cafe -= 20;
+            pedidoCorrecto = true;
         }
+        if (pedidoCorrecto) {
+            vasos -= 1;
+        }
+        return pedidoCorrecto;
     }
 
-    public void restarStock(String producto, int cantidad) {
+    public boolean recargarSuministros (String producto, int cantidad){
+        boolean productoCorrecto = false;
 
-        // Este if pertenece al case 3 del swich
-        if (producto.equalsIgnoreCase("mugs")) {
-            mugs -= cantidad;
-        } else if (producto.equalsIgnoreCase ("camisetas")) {
-            camisetas -= cantidad;
-        } else if (producto.equalsIgnoreCase("llaveros")) {
-            llaveros -= cantidad;
-        } else {
-            System.out.println("Producto no existe");
+        if (producto.equalsIgnoreCase("agua")) {
+            agua += cantidad;
+            productoCorrecto = true;
+        } else if (producto.equalsIgnoreCase("cafe")) {
+            cafe += cantidad;
+            productoCorrecto = true;
+        } else if (producto.equalsIgnoreCase("vasos")) {
+            vasos += cantidad;
+            productoCorrecto = true;
         }
+        return productoCorrecto;
     }
 }
+
+
